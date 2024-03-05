@@ -1,1 +1,196 @@
-This is my second data
+Microsoft Windows [Version 10.0.19045.2251]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p -h localhost
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.37 sec)
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database anuj
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'show databases' at line 2
+mysql> create database anuj;
+Query OK, 1 row affected (0.35 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| anuj               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use database name
+ERROR 1049 (42000): Unknown database 'database'
+mysql> use anuj
+Database changed
+mysql> create table student (id int primary key, name varchar(20) not null);
+Query OK, 0 rows affected (1.65 sec)
+
+mysql> show tables
+    -> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'show table' at line 2
+mysql> show tables;
++----------------+
+| Tables_in_anuj |
++----------------+
+| student        |
++----------------+
+1 row in set (0.09 sec)
+
+mysql> discribe student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'discribe student' at line 1
+mysql> discribe student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'discribe student' at line 1
+mysql> describe student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(20) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.17 sec)
+
+mysql> alter table student add column age datatype constraints( option);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'datatype constraints( option)' at line 1
+mysql> alter table student add column age int not null;
+Query OK, 0 rows affected (1.28 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table student modify age float not null;
+Query OK, 0 rows affected (3.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(20) | NO   |     | NULL    |       |
+| age   | float       | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.15 sec)
+
+mysql> alter table student rename employee;
+Query OK, 0 rows affected (0.80 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_anuj |
++----------------+
+| employee       |
++----------------+
+1 row in set (0.05 sec)
+
+mysql> alter table employee add column (name varchar(20) after name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'after name' at line 1
+mysql> alter table employee add column lname varchar(20) after name;
+Query OK, 0 rows affected (0.55 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee rename to fname;
+Query OK, 0 rows affected (0.66 sec)
+
+mysql> alter table employee rename name to fname;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to fname' at line 1
+mysql> alter table employee rename column name to fname;
+ERROR 1146 (42S02): Table 'anuj.employee' doesn't exist
+mysql> show tables;
++----------------+
+| Tables_in_anuj |
++----------------+
+| fname          |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> alter table fname rename name to employee
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to employee' at line 1
+mysql> alter table fname rename name to employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to employee' at line 1
+mysql> alter table fname rename employee
+    -> ;
+Query OK, 0 rows affected (0.74 sec)
+
+mysql> alter table fname rename name to employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to employee' at line 1
+mysql> alter table fname rename to employee;
+ERROR 1146 (42S02): Table 'anuj.fname' doesn't exist
+mysql> alter table fname rename employee;
+ERROR 1146 (42S02): Table 'anuj.fname' doesn't exist
+mysql> show tables;
++----------------+
+| Tables_in_anuj |
++----------------+
+| employee       |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> alter table employee rename column name to fname;
+Query OK, 0 rows affected (0.46 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| fname | varchar(20) | NO   |     | NULL    |       |
+| lname | varchar(20) | YES  |     | NULL    |       |
+| age   | float       | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee add column gov-id int first;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-id int first' at line 1
+mysql> alter table employee add column govid int first;
+Query OK, 0 rows affected (1.58 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| govid | int         | YES  |     | NULL    |       |
+| id    | int         | NO   | PRI | NULL    |       |
+| fname | varchar(20) | NO   |     | NULL    |       |
+| lname | varchar(20) | YES  |     | NULL    |       |
+| age   | float       | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
