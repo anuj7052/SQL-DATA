@@ -1,0 +1,12 @@
+create database anujsingh;
+show databases;
+use anujsingh;
+
+create table first(
+id int,
+name varchar(20),
+age int,
+city varchar(20) );
+
+show tables;
+desc first;
