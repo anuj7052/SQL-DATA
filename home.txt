@@ -1,0 +1,65 @@
+CREATE DATABASE room;
+
+-- this is use for create table
+
+create table room (
+name varchar (20),
+moblie_number int,
+amount bigint );
+
+create table room2 (
+sr_no int,
+name varchar (50),
+mobile_number bigint,
+amount int );
+
+-- this is use for showing table
+
+show tables;
+
+-- this is use for showing databases
+
+show databases;
+
+
+-- this is using for delete 
+drop table room ;
+
+-- this is using for  select database after going folder 
+
+use anuj;
+ desc student;
+
+-- this is using for select & view all column
+
+select * from student ;
+
+-- this is using for change change rollno  number
+
+update student set rollno = 3 where contact =93819415446 ;
+
+update student set contact = 9381941539 where rollno = 3 ;
+
+-- this is use add new column 
+
+alter table student add column pincode int default "400075";
+
+
+-- this is use insert column 
+insert into student value(5,'Anuj','Angurpur','630268646','ghazipur','275203');
+
+--  this is use for more column fill 
+insert into student
+(rollno, fname, lname, contact, city, pincode )
+value
+(7,'kk','sss','8888888', 'pune','11222'),
+(8,'kk','sss','8888999888', 'nashik','1122200');
+
+
+select * from student;
+-- this is use for selected data fetch;
+select student.fname,student.contact from student;
+
+select fname,lname,contact from student;
+-- this is use alias ( temporay name change)
+select fname as First_Name, lname as Last_Name, contact from student;
