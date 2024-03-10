@@ -1,0 +1,16 @@
+show databases;
+use anujsingh;
+show tables ;
+desc first ;
+select * from first ;
+
+insert into first
+(id,name,age,city)
+value
+('1', 'anuj','22','mumbai'),
+('2','akash','24','nashik'),
+('3','ankit','22','agra');
+
+
+
+select first.name, first.city from first;
