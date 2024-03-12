@@ -1,0 +1,25 @@
+show tables;
+show databases;
+use anujsingh;
+create table studentdata(
+id int,
+name varchar(50),
+marks float,
+paid_fees int,
+attendance int);
+select * from studentdata;
+insert into studentdata
+(id,name,marks,paid_fees,attendance)
+value
+(1,'anuj','90','35000','100'),
+(2,'akash','70','30000','60'),
+(3,'ankit','75','25000','70'),
+(4,'khushi','100','40000','100'),
+(5,'spiderman','40','10000','65'),
+(6,'ironman','50','20000','75'),
+(7,'motu','90','50000','95'),
+(8,'patlu','100','20000','100'),
+(9,'shubhi','20','10000','25');
+
+select * from studentdata where name like 'a%';
+select

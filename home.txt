@@ -1,4 +1,4 @@
-CREATE DATABASE room;
+	CREATE DATABASE room;
 
 -- this is use for create table
 
