@@ -4,12 +4,13 @@ use anujsingh;
 create table studentdata(
 id int,
 name varchar(50),
+deparment varchar(50),
 marks float,
 paid_fees int,
 attendance int);
 select * from studentdata;
 insert into studentdata
-(id,name,marks,paid_fees,attendance)
+(id,name,demarks,paid_fees,attendance)
 value
 (1,'anuj','90','35000','100'),
 (2,'akash','70','30000','60'),
@@ -20,6 +21,110 @@ value
 (7,'motu','90','50000','95'),
 (8,'patlu','100','20000','100'),
 (9,'shubhi','20','10000','25');
+select * from studentdata;
+SET SQL_SAFE_UPDATES = 0;
+truncate studentdata;
+select * from studentdata;
+insert into studentdata
+(id,name,department,marks,paid_fees,attendance)
+value
+(1,'anuj','css','90','35000','100'),
+(2,'akash','devloper','70','30000','60'),
+(3,'ankit','excutive','75','25000','70'),
+(4,'khushi','css','100','40000','100'),
+(5,'spiderman','devloper','40','10000','65'),
+(6,'ironman','css','50','20000','75'),
+(7,'motu','devloper','90','50000','95'),
+(8,'patlu','css','100','20000','100'),
+(9,'shubhi','devloper','20','10000','25');
+
+-- this is use like opertaers
+
 
 select * from studentdata where name like 'a%';
-select
+select * from studentdata where name like '%h';
+select * from studentdata where name like 'a%j';
+select * from studentdata where name like '__u%';
+select * from studentdata where name like 'a__j';
+
+-- this is use for limit operters ( checking for hightest paying 1,2,3)
+
+select * from studentdata;
+select distinct paid_fees from studentdata order by paid_fees desc limit 1;
+select distinct paid_fees from studentdata order by paid_fees desc limit 1,1;
+select distinct paid_fees from studentdata order by paid_fees desc limit 2,1;
+
+-- this is using for lowest values
+
+select distinct paid_fees from studentdata order by paid_fees limit 1;
+
+-- this is use (in) opereter for for selected data showing in operters
+
+select * from studentdata where id in (1,4,8);
+select * from studentdata where name in ('anuj','motu','patlu');
+
+update studentdata set paid_fees = paid_fees+(paid_fees*0.15) where id in(1,4,6);
+
+update studentdata set paid_fees = paid_fees-(paid_fees*0.15) where id in(3,5,7);
+
+-- this is use for( not in ) operters
+
+select * from studentdata;
+select* from studentdata where id not in (1,4,7);
+delete from studentdata where id in (3);
+
+create table table1(id int, name varchar(70));
+create table table2(id int, name varchar(70));
+select *from table1;
+insert into table1
+value (1,'anuj'),
+(2,'akash'),
+(3,'patlu'),
+(4,'motu'),
+(5,'ankit');
+
+select *from table2;
+insert into table2
+value (1,'anuj'),
+(2,'khushi'),
+(3,'patlu'),
+(4,'motu'),
+(5,'shubhi');
+
+-- this is (union) operter ( not showing duplicate data)
+
+select * from table1 union select * from table2;
+
+-- this is ( union all ) operter ( showing all date with duplicate)
+
+select * from table1 union all select * from table2;
+-- this is using for left side matching data showing
+select * from table1 intersect select * from table2;
+
+select * from table1 except select * from table2;
+
+
+-- this is use for between operter
+
+select * from studentdata;
+select * from studentdata where id between 2 and 6;
+select * from studentdata where paid_fees between 10000 and 30001;
+select * from studentdata where paid_fees>=20000 and paid_fees<30001;
+
+
+select * from studentdata;
+ 
+ -- this is use for group by use( he is showing which department how many people working)
+ 
+ select count(id),department from studentdata group by department;
+ 
+ select max(marks) from studentdata;
+ select avg(marks),department from studentdata group by department;
+  select count(id),department from studentdata group by department having avg(marks)>50;
+
+   select count(id),department from studentdata group by department having avg(marks)<50;
+  select count(id),department from studentdata group by department having avg(marks)>80;
+
+ 
+ 
+ 
