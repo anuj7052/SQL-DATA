@@ -1,0 +1,7 @@
+use anujsingh;
+show tables;
+select * from studentdata;
+select count(id),department from studentdata group by department having count(department)>=2;
+select * from studentdata where marks not in (75);
+select count(id),department from studentdata where marks not in (75) group by department;
+select count(id),department from studentdata where marks not in (75) group by department having count(id)>1;
