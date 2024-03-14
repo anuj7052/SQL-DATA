@@ -1,0 +1,48 @@
+select abs(-11);
+select abs(-1.11);
+select ceil(12.34);
+select ceil(12.0);
+
+-- round 
+select round(12.1);
+select round(12.4);
+select round(12.5);
+-- truncate()
+select truncate(12.11111111,1);
+select truncate(12.11111111,3);
+-- mode reminder showing modules
+select mod (10,4);
+
+-- floor  
+select floor(10/4);
+-- power  squre into
+select pow(2,2);
+select pow(10,2);
+
+-- sqrt squre divide
+select sqrt(10);
+
+use anujsingh;
+select * from studentdata;
+select department, name, round(marks) from studentdata;
+select department, name, truncate(marks,10) from studentdata;
+select department, name, round(marks) from studentdata;
+
+select department, name, mod(marks,10) from studentdata;
+select department, name, sqrt(marks) from studentdata where id = 5;
+select department, name, sqrt(marks) from studentdata;
+
+select curdate();
+select now();
+select sysdate();
+select last_day(curdate());
+select last_day('2023-02-14');
+select datediff('2024-03-14','2000-11-05');
+select date_format(curdate(),'%d-%c-%Y');
+select date_format(curdate(),'%D-%M-%Y');
+SELECT DATE_FORMAT(CURDATE(), '%D-%b-%Y');
+select date_format(curdate(),'%a,%D-%b-%Y');
+select date_format(curdate(),'%W,%D-%b-%Y');
+
+-- date time
+select date_format(now(),'%W,%D-%b-%Y,%h:%i:%s');

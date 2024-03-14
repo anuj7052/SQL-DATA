@@ -5,3 +5,23 @@ select count(id),department from studentdata group by department having count(de
 select * from studentdata where marks not in (75);
 select count(id),department from studentdata where marks not in (75) group by department;
 select count(id),department from studentdata where marks not in (75) group by department having count(id)>1;
+
+
+
+select lower('anUJ');
+select upper('anuj');
+select concat('welcome to Itvedant','thane');
+select replace('welcome to Itvedant thane','thane','andheri');
+select replace('welcome to Itvedant thane','a','andheri');
+select length('my name is khan');
+select length(trim('_____abc__abc____'));
+select trim('     abc   abc   ');
+select substring('my name is khan',1,2);
+
+select substring('my name is khan',12,4);
+
+select * from studentdata;
+select upper(department),upper(name) from studentdata;
+
+
+
