@@ -1,0 +1,27 @@
+use anujsingh;
+show tables;
+desc ab;
+create table ab(uid int, uname varchar (50), primary key(uid));
+create table order12(oid int primary key, product_name varchar(60), uid int, foreign key(uid) references ab(uid));
+insert into ab values
+('1','aaa'),
+('2','xyz'),
+('3','ttt');
+select * from order12;
+
+insert into order12 values
+('2','bread',1),
+('3','milk',3); 
+select * from order12;
+
+select ab.uname, order12.product_name from order12 inner join ab on ab.uid = order12.uid;
+select * from order12 inner join ab on ab.uid = order12.uid;
+
+select * from ab  where uid is null;
+select * from order12  where uid is not null;
+
+create table product(pid int primary key, pname varchar(20));
+create table order123(oid int primary key, uid int, pid int, foreign key (oid) references product(pid));
+create table payment(pay_id int primary key, oid int, foreign key (oid) references order123(oid));
+insert into product values (420,'bike'),(421,'laptop'),(422,'mobile');
+insert into order123 values (101,3,420);

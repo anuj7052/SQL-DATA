@@ -1,0 +1,16 @@
+use anujsingh;
+show tables;
+select * from studentdata;
+select id, department,name, marks,
+case
+when marks>=30 and marks<=60 then 'Third class'
+when marks>60 and marks<80 then 'Second class'
+when marks>=80 and marks<=100 then 'First class'
+end as result from studentdata;
+
+select id, department,name, marks,
+case
+when marks>=30 and marks<=60 then 'Third class'
+when marks>60 and marks<80 then 'Second class'
+when marks>=80 and marks<=100 then 'First class'
+end as result from studentdata order by marks desc;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
