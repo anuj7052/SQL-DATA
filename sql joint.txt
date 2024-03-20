@@ -1,0 +1,30 @@
+use anujsingh;
+select * from students;
+select * from college;
+-- left joim
+select * from college left join students on students.cid = college.cid;
+-- right join
+
+select * from college right join students on students.cid = college.cid;
+
+-- full outer join
+select * from college left join students on students.cid = college.cid
+union
+select * from college right join students on students.cid = college.cid;
+
+create table employee(eid int,ename varchar(20), designation varchar(20), mid int);
+desc employee;
+
+insert into employee values (1,'rahul','dev',6),(2,'devsoni','hr',5),(3,'dddd','dev',6),(4,'rohit','dev',6),(5,'bigboss','ceo',0),(6,'stark','maneger',5);
+truncate employee;
+select * from employee;
+
+select e.ename as employee_name,e.designation,m.ename as Manger_Name, m.designation
+from employee as e inner join  employee as m on m.eid = e.mid;
+
+
+-- self join 
+
+
+select e.ename as employee_name,e.designation, m.ename as manger_name, m.designation 
+from employee as e, employee as m where e.mid = m.eid;
