@@ -1,0 +1,29 @@
+CREATE DATABASE institute_of_management_system;
+USE institute_of_management_system;
+
+-- Table: Institute
+CREATE TABLE Institute (
+    institute_id INT  PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    location VARCHAR(100)
+);
+
+insert into Institute values(1,'MIT','mumbai'),(2,'NIT','Mumbai'),(3,'IIT','Mumbai');
+
+Select * from Institute;
+
+-- Table: Course
+CREATE TABLE Course (
+    course_id INT  PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL,
+    institute_id INT,
+    FOREIGN KEY (institute_id) REFERENCES Institute(institute_id)
+);
+insert into Course values
+('1','fs','3'),
+('2','dse','1');
+insert into Course values
+('4','fs','3'),
+('5','dse','1');
+select *  from Course;
+

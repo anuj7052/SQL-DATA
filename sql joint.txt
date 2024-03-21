@@ -28,3 +28,17 @@ from employee as e inner join  employee as m on m.eid = e.mid;
 
 select e.ename as employee_name,e.designation, m.ename as manger_name, m.designation 
 from employee as e, employee as m where e.mid = m.eid;
+
+
+select * from students;
+select * from college;
+select students.sname, college.cname from students cross join college;
+select students.sname, college.cname from students,college;
+
+
+
+select * from students;
+select sid from students where sage between 20 and 23;
+select * from students where sid >any (select sid  from students where sage between 20 and 23);
+select * from students where sid >all (select sid  from students where sid between 1 and 3);
+select * from students where sid >some (select sid  from students where sid between 1 and 3);
