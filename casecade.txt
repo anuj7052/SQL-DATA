@@ -1,0 +1,11 @@
+use anujsingh;
+create table robot3 (id1 int primary key , name1 varchar (60));
+drop table robot1;
+create table robot4 (id2 int primary key, name2 varchar (90), id1 int, foreign key(id1) references robot3(id1)on delete cascade );
+insert into robot3 values(1,'rrr'),(2,'aaaaa'),(3,'bbbb');
+insert into robot4 values (11,'ffffff',3);
+
+select * from robot3;
+select * from robot4;
+
+delete from robot3 where id1 = 3;

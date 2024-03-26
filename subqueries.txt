@@ -1,0 +1,7 @@
+SELECT * FROM anujsingh.students;
+select * from students where sid >any(1,2,44);
+
+select * from students where sid in ( select sid from students where sage > 23 );
+select * from students where sage in (22,23,23);
+select * from students where sage = (select max(sage) from students where sage < ( select max(sage) from students));
+
